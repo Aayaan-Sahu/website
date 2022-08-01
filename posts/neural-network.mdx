@@ -1,0 +1,101 @@
+---
+title: "Neural Networks"
+author: Aayaan Sahu
+date: 8/1/2022
+description: "A short introduction to neural networks discussing the basics."
+tags: ["AI", "Tutorial"]
+---
+
+# What is a Neural Network?
+
+According to Wikipedia, a
+<span className="text-blue-500">[neural network](https://en.wikipedia.org/wiki/Artificial_neural_network)</span>
+is a computing system inspired by the biological neural networks that constitute
+animal brains. These systems are made up of neurons, also called nodes, which are
+organized in layers. Together these layers form a network, called the **model**,
+that perform computations that help the general **model** *learn*.
+
+<br />
+
+# Quickstart
+
+A node is the smallest functioning part of a neural network. A node has an **input**,
+an **output**, and a set of **weights** that connect it to other nodes. Some nodes
+may have **biases**. Weights and biases are the tunable parameters of a model. A
+layer is a collection of nodes. Inputs and outputs pass through the layers of the
+network, till they reach the output layer, which is the final layer, which shows what
+the model predicted.
+
+<br />
+
+## Example
+
+We have a simple neural network with layers: $a$, $b$, $c$. $a$ is the **input layer**,
+which receives the input data. $b$ is the **hidden layer**, which receives the output
+of $a$. $c$ is the **output layer**, which receives the output of $b$.
+
+<div style={{ marginLeft: "2rem" }}>
+- Layer $a$ has $1$ node: $a_1$.
+- Layer $b$ has $3$ nodes: $b_1$, $b_2$, $b_3$.
+- Layer $c$ has $2$ nodes: $c_1$, $c_2$.
+</div>
+Now we can declare the weights within this system. The weights are the hidden, tunable
+parameters of the system, that factor into the output of the system. Let's declare
+the naming of a weight as the connection between two nodes. For instance the weight
+between $a_1$ and $b_1$ is called $a_1b_1$.
+<div style={{ marginLeft: "2rem" }}>
+- Weights between layer $a$ and layer $b$ are called $a_1b_1$, $a_1b_2$, $a_1b_3$.
+- Weights between layer $b$ and layer $c$ are called $b_1c_1$, $b1_c2$, $b_2c_1$, $b_2c_2$, $b_3c_1$, $b_3c_2$.
+</div>
+Values propogate through the layers of this neural network, with operations by individual
+nodes, as they converge in the output node.
+<br />
+Let's find out how this works. Since layer $a$ is an input layer, it doesn't actually
+perform any computations. It will just pass values to the next layer. Let's figure
+out the value of the node $b_1$. The value of $b_1$ is the sum of the weights multiplied
+by their corresponding input. If this seems confusing, a written out example will
+help. Let's say the values passed in to the input layer are $1$, $2$, $3$. This means
+that $a_1 = 1$, $a_2 = 2$, $a_3 = 3$. Let's declare the weights: $a_1b_1 = 0.5$,
+$a_2b_1 = 0.2$, $a_3b_1 = 0.1$. It's important to realize that the weights connect
+from all the nodes ($a_0 \ldots a_n$) in the input layer to one node in the hidden
+layer ($b_1$).
+<div className="pt-4 pb-4 text-center">
+  $$b_1 = (1 \times 0.5) + (2 \times 0.2) + (3 \times 0.1)$$
+</div>
+
+### Biases
+
+If you've done any research on neural networks before, you might know that the nodes within
+the model also have what's called **biases**. Biases are also tunable parameters of the model.
+
+<strong>This input layer doesn't have biases</strong>, since it just serves to
+pass inputs to next layer. To see how biases come into play, let's exapnd the
+example above. Let's say the bias for $b_1$ is $3.5$.
+<div className="pt-4 pb-4 text-center">
+  $$b_1 = (1 \times 0.5) + (2 \times 0.2) + (3 \times 0.1) + 3.5$$
+</div>
+All of the nodes in the hidden layers and output layer follow the same process.
+The final values at the output layer is what the model predicted.
+
+<br />
+
+<p className="font-semibold">There is much more to a neural network such as activation functions,
+loss functions, and optimizers. We will cover these in sections to come.</p>
+
+<br />
+
+# Keywords
+- NODE: The basic unit of a neural network.
+- LAYER: A group of nodes.
+- INPUT: A value passed on to a node.
+- OUTPUT: A value returned by a node.
+- WEIGHT: A *hidden*, tunable parameter between two nodes.
+- BIAS: A *hidden*, tunable parameter of a node.
+
+<br />
+
+# Resources
+<div className="text-blue-500">
+1. [Wikipedia](https://en.wikipedia.org/wiki/Artificial_neural_network)
+2. [NNFS](https://www.youtube.com/watch?v=Wo5dMEP_BbI&list=PLQVvvaa0QuDcjD5BAw2DxE6OF2tius3V3)
+</div>
