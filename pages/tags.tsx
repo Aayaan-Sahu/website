@@ -43,7 +43,7 @@ export default function Tags({
       >
         {tags_count.map(({ name, count }) => {
           return (
-            <div className="mt-2 mb-2 mr-5 inline-block">
+            <div key={name} className="mt-2 mb-2 mr-5 inline-block">
                 <Link href={`tags/${name}`}>
                   <div className="cursor-pointer">
                     <span className="font-semibold pr-1 text-blue-500 hover:text-blue-600 dark:text-blue-500 dark:hover:text-blue-400">{name.toUpperCase()}</span>

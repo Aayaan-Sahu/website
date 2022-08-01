@@ -23,6 +23,7 @@ export default function Links() {
               <a
                 style={{ borderRadius: "16px" }}
                 className="flex flex-col justify-content items-center my-6 py-4 px-20 border-2 dark:border-gray-700 border-gray-200 transition hover:bg-gray-100 dark:hover:bg-gray-800"
+                rel="noopener noreferrer"
                 target="_blank"
                 href="https://www.github.com/Aayaan-Sahu/"
               >
@@ -31,6 +32,7 @@ export default function Links() {
               <a
                 style={{ borderRadius: "16px" }}
                 className="flex flex-col justify-content items-center my-6 py-4 px-20 border-2 dark:border-gray-700 border-gray-200 transition hover:bg-gray-100 dark:hover:bg-gray-800"
+                rel="noopener noreferrer"
                 target="_blank"
                 href="mailto:aayaansahu@gmail.com"
               >
