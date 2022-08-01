@@ -6,6 +6,7 @@ export default function Footer() {
         <a
           // className="mr-1 fill-current h-6 w-6 text-sm text-gray-200 transition hover:text-blue-500 dark:hover:text-blue-400"
           className="mr-1 fill-current h-6 w-6 text-sm text-gray-500 transition hover:text-blue-500 dark:hover:text-blue-400"
+          rel="noopener noreferrer"
           target="_blank"
           href="mailto:aayaansahu@gmail.com"
         >
@@ -17,6 +18,7 @@ export default function Footer() {
         <a
           // className="ml-1 fill-current h-6 w-6 text-sm text-gray-200 transition hover:text-blue-500 dark:hover:text-blue-400"
           className="ml-1 fill-current h-6 w-6 text-sm text-gray-500 transition hover:text-blue-500 dark:hover:text-blue-400"
+          rel="noopener noreferrer"
           target="_blank"
           href="https://github.com/Aayaan-Sahu/"
         >

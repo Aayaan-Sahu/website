@@ -18,6 +18,7 @@ export default function Tags({
   const { mounted, setMounted } = useMountedContext();
   useEffect(() => {
     setMounted(true);
+    // eslint-disable-next-line
   }, []);
   return (
     <>

@@ -20,6 +20,7 @@ export default function Home({
 
   useEffect(() => {
     setMounted(true);
+    // eslint-disable-next-line
   }, []);
 
   return (

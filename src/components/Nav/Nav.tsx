@@ -45,9 +45,7 @@ export default function Nav({ mounted }: { mounted: boolean }) {
   const { systemTheme, theme, setTheme } = useTheme();
   return (
     <>
-      <Head>
-        <Script src="./src/toggle.js" strategy="beforeInteractive"></Script>
-      </Head>
+      <Script src="./src/toggle.js" strategy="beforeInteractive"></Script>
       <div
         style={{ width: "80%", marginLeft: "auto", marginRight: "auto" }}
         className="items-center flex flex-row pt-3"

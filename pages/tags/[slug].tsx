@@ -20,6 +20,7 @@ export default function TagPage({
   const { mounted, setMounted } = useMountedContext();
   useEffect(() => {
     setMounted(true);
+    // eslint-disable-next-line
   }, []);
   return (
     <>

@@ -2,11 +2,12 @@ import { useEffect } from "react";
 import Nav from "../src/components/Nav/Nav";
 import { MountedContext, useMountedContext } from "../src/MountedContext";
 
-export default function links() {
+export default function Links() {
   const { mounted, setMounted } = useMountedContext();
 
   useEffect(() => {
     setMounted(true);
+    // eslint-disable-next-line
   }, []);
   return (
     <>

@@ -6,6 +6,7 @@ export default function Page404() {
   const { mounted, setMounted } = useMountedContext();
   useEffect(() => {
     setMounted(true);
+    // eslint-disable-next-line
   }, []);
   return (
     <>

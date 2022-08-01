@@ -28,6 +28,7 @@ export default function Search({
   const { mounted, setMounted } = useMountedContext();
   useEffect(() => {
     setMounted(true);
+    // eslint-disable-next-line
   }, []);
 
   const [search, setSearch] = useState("");

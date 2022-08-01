@@ -32,6 +32,7 @@ export default function PostPage({ post }: { post: MDXPost }) {
   const { mounted, setMounted } = useMountedContext();
   useEffect(() => {
     setMounted(true);
+    // eslint-disable-next-line
   }, []);
   return (
     <>
