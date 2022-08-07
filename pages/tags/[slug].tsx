@@ -42,13 +42,9 @@ export default function TagPage({
 }
 
 const PROCESS = process.cwd();
-// const TAG_DESCRIPTION_PATH = path.join(process.cwd(), "public", "tags", "descriptions");
 const TAG_DESCRIPTION_PATH = path.join(PROCESS, "public", "tags", "descriptions")
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  // const PROCESS_CONTENTS = fs.readdirSync(path.join(PROCESS, "public", "tags", "descriptions"));
-  const PROCESS_CONTENTS = fs.readdirSync(TAG_DESCRIPTION_PATH);
-
   const { slug } = params as { slug: string };
   const posts = getAllPosts().filter((post) =>
     post.post_metadata.tags.includes(slug)
