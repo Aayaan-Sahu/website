@@ -12,12 +12,12 @@ export default function TagPage({
   slug,
   metadata_posts,
   description,
-  PROCESS,
+  PROCESS_CONTENTS,
 }: {
   slug: string;
   metadata_posts: PostMetadata[];
   description: string;
-  PROCESS: string;
+  PROCESS_CONTENTS: string[];
 }) {
   const { mounted, setMounted } = useMountedContext();
   useEffect(() => {
@@ -30,6 +30,9 @@ export default function TagPage({
       <Head>
         <title>{`Tag: ${slug}`}</title>
       </Head>
+      <div>
+        {PROCESS_CONTENTS?.map((content) => (<p>{content}</p>))}
+      </div>
       <p>{PROCESS}</p>
       <div style={{ width: "80%", marginLeft: "auto", marginRight: "auto" }}>
         <div className="pt-8 pb-8 mt-8 mb-8 border-b border-gray-300 dark:border-gray-700">
@@ -48,6 +51,8 @@ const TAG_DESCRIPTION_PATH = path.join(process.cwd(), "public", "tags", "descrip
 const PROCESS = process.cwd();
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const PROCESS_CONTENTS = fs.readdirSync(PROCESS);
+
   const { slug } = params as { slug: string };
   const posts = getAllPosts().filter((post) =>
     post.post_metadata.tags.includes(slug)
@@ -66,7 +71,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       slug,
       metadata_posts: posts.map((post) => post.post_metadata),
       description,
-      PROCESS,
+      PROCESS_CONTENTS,
     },
   };
 };
