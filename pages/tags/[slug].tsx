@@ -51,7 +51,7 @@ const TAG_DESCRIPTION_PATH = path.join(process.cwd(), "public", "tags", "descrip
 const PROCESS = process.cwd();
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const PROCESS_CONTENTS = fs.readdirSync(PROCESS);
+  const PROCESS_CONTENTS = fs.readdirSync(path.join(PROCESS, "public"));
 
   const { slug } = params as { slug: string };
   const posts = getAllPosts().filter((post) =>
