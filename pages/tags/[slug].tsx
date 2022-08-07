@@ -41,7 +41,8 @@ export default function TagPage({
   );
 }
 
-const TAG_DESCRIPTION_PATH = path.join(process.cwd(), "tags", "descriptions");
+// const TAG_DESCRIPTION_PATH = path.join(process.cwd(), "tags", "descriptions");
+const TAG_DESCRIPTION_PATH = "tags/descriptions";
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { slug } = params as { slug: string };
