@@ -59,12 +59,13 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const posts = getAllPosts().filter((post) =>
     post.post_metadata.tags.includes(slug)
   );
+  const slugLower = slug.toLowerCase();
 
   let description = "";
-  if (fs.existsSync(path.join(TAG_DESCRIPTION_PATH, `${slug}.txt`))) {
+  if (fs.existsSync(path.join(TAG_DESCRIPTION_PATH, `${slugLower}.txt`))) {
     description = fs.readFileSync(
-      path.join(TAG_DESCRIPTION_PATH, `${slug}.txt`),
-      "utf8"
+      path.join(TAG_DESCRIPTION_PATH, `${slugLower}.txt`),
+      "utf-8"
     );
   }
 
