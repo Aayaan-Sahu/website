@@ -31,7 +31,7 @@ export default function TagPage({
         <title>{`Tag: ${slug}`}</title>
       </Head>
       <div>
-        {PROCESS_CONTENTS?.map((content) => (<p>{content}</p>))}
+        {PROCESS_CONTENTS?.map((content) => (<p key={content}>{content}</p>))}
       </div>
       <p>{PROCESS}</p>
       <div style={{ width: "80%", marginLeft: "auto", marginRight: "auto" }}>
