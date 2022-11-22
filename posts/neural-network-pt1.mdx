@@ -1,5 +1,5 @@
 ---
-title: "Neural Networks"
+title: "Neural Networks Pt. 1"
 author: Aayaan Sahu
 date: 8/1/2022
 description: "A short introduction to neural networks discussing the basics."
@@ -58,9 +58,9 @@ help. Let's say the values passed in to the input layer are $1$, $2$, $3$. This 
 that $a_1 = 1$, $a_2 = 2$, $a_3 = 3$. Let's declare the weights: $a_1b_1 = 0.5$,
 $a_2b_1 = 0.2$, $a_3b_1 = 0.1$. It's important to realize that the weights connect
 from all the nodes ($a_0 \ldots a_n$) in the input layer to one node in the hidden
-layer ($b_1$).
+layer ($n_1$).
 <div className="pt-4 pb-4 text-center">
-  $$b_1 = (1 \times 0.5) + (2 \times 0.2) + (3 \times 0.1)$$
+  $$n_1 = (1 \times 0.5) + (2 \times 0.2) + (3 \times 0.1)$$
 </div>
 
 ### Biases
@@ -72,7 +72,7 @@ the model also have what's called **biases**. Biases are also tunable parameters
 pass inputs to next layer. To see how biases come into play, let's exapnd the
 example above. Let's say the bias for $b_1$ is $3.5$.
 <div className="pt-4 pb-4 text-center">
-  $$b_1 = (1 \times 0.5) + (2 \times 0.2) + (3 \times 0.1) + 3.5$$
+  $$n_1 = (1 \times 0.5) + (2 \times 0.2) + (3 \times 0.1) + 3.5 = 4.7$$
 </div>
 All of the nodes in the hidden layers and output layer follow the same process.
 The final values at the output layer is what the model predicted.

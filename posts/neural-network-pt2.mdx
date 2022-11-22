@@ -1,0 +1,83 @@
+---
+title: "Neural Networks Pt. 2"
+author: Aayaan Sahu
+date: 11/20/2022
+description: "A continuation of the neural networks series, discussing activation functions"
+tags: ["AI", "Tutorial"]
+---
+
+# Purpose
+An activation function is simply a function that is applied to the output of a node after all of the initial calculations
+take place. But why do we need activation functions? Without activation functions, any neural network we coneive would be a
+linear function, which is not very useful when we use neural networks to model complex relationships. Activation functions
+allow us to add non-linearity to our neural network, with a very simple change.
+
+<br />
+
+# Recap
+Recall that we could find the value of one node by summing the products of the weights and values of the nodes of
+the previous layers, and then adding the bias. Which can be represented by the following equation:
+<div className="pt-4 pb-4 text-center">
+  $$\left(\sum\limits_{i=1}^{n}w_iv_i\right) + b$$
+</div>
+where $n$ is the number of nodes in the previous layers, $w_i$ and $v_i$ are the weights and values of the $i^{th}$ node,
+and $b$ is the bias of the node. Now, all we need to do is to apply an activation function. Let's take a look at a few.
+
+<br />
+
+# Activation Functions
+There are many activation functions, but they all have the same purpose: to add non-linearity to our neural network.
+Let's take a look at a few simple and popular action functions.
+
+## ReLU
+ReLU stands for Rectified Linear Unit, and is the most popular activation function. It is defined as follows:
+<div className="pt-4 pb-4 text-center">
+  $$\text{ReLU}(x) = \max(0, x)$$
+</div>
+This function is very simple, and is very easy to implement. Essentially, it returns its input if it is positive, and 0
+if the output is negative. In the last post, covering weights and biases, we saw that the value for one node in a hidden
+layer was
+<div className="pt-4 pb-4 text-center">
+  $$n_1 = (1 \times 0.5) + (2 \times 0.2) + (3 \times 0.1) + 3.5 = 4.7$$
+</div>
+Applying the ReLU activation function to this value would give us $\text{ReLU}(4.7) = \max(0, 4.7) = 4.7$. With ReLU as
+the activation function, the output of this node would be $4.7$. This still seems quite linear because the output is the
+same as the input. However, the real non-linearity comes from the fact that the output is 0 if the input is negative. Let's
+pretend that a certain node within our neural network had a value of $-2.3$. Applying the ReLU activation function to this
+node we would receive $\text{ReLU}(-2.3) = \max(0, -2.3) = 0$. The graph of the ReLU activation function is as shown below.
+
+<br />
+
+<div className="flex items-center justify-center text-center">
+  <img src="/Relu-Activation-Function.png" width="65%" height="65%" />
+</div>
+<div className="flex items-center justify-center text-center font-semibold">
+  Fig 1: ReLU activation function
+</div>
+
+## Sigmoid
+The sigmoid activation function is defined as:
+<div className="pt-4 pb-4 text-center">
+  $$S(x) = \frac{1}{1 + e^{-x}}$$
+</div>
+The sigmoid activation function is another very popular activation function. It maps any real number it receives as an input
+to a value between 0 and 1. The sigmoid activation function tends to be used in classification machine learning problems, due to
+the fact that the output of the sigmoid function is between 0 and 1 and can be interpreted as a probability. The graph of the
+sigmoid function is shown below.
+
+<br />
+
+<div className="flex items-center justify-center text-center">
+  <img src="/Sigmoid-Activation-Function.png" width="65%" height="65%" />
+</div>
+<div className="flex items-center justify-center text-center font-semibold">
+  Fig 2: Sigmoid activation function
+</div>
+
+Continuing our example from the last post, we can see that the value of the node in the hidden layer is $n_1 = 4.7$. Applying
+the sigmoid activation function to this value would give us $S(4.7) = \frac{1}{1 + e^{-4.7}} = 0.991$. We can see the
+non-linearity this adds to our neural network.
+
+
+# Keywords
+- ACTIVATION FUNCTION: The basic unit of a neural network.
