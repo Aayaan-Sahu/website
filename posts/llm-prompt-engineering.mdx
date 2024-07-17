@@ -5,6 +5,8 @@ date: 7/15/2024
 description: "How to get better responses from large language models"
 tags: ["AI", "Tutorial", "LLM"]
 ---
+import '../styles/globals.css'
+
 
 # What Are LLMs?
 **LLM**s, or **L**arge **L**angage **M**odels, are machine learning models based on the transformer architecture trained on vast arrays of text. The gist of an LLM is to give it some text and it will generate the next best words that it sees fits. This is done by understanding the relationships between words, so that it can idealize the next best output.
@@ -32,7 +34,7 @@ Now that we know what LLMs are, we need to know how to take advantage of their c
 The chain of thought prompting framework focuses on replicating how humans approach solving problems, namely through breaking up the problem into smaller parts. The model will then individually investigate these broken up parts until it arrives upon an answer. This <span className="text-blue-500" target="_blank">[paper](https://arxiv.org/pdf/2201.11903)</span> investigates how using chain of thought can elicit reasoning within LLMs. Here's how chain of thought works.
 
 <br />
-<div style={{ marginLeft: "2rem" }}>
+<div className="code" style={{ marginLeft: "2rem" }}>
 ### **Input**
 Q: I have 20 apples in total. My customer buys 3 packs of apples. Every pack contains 4 apples. How many apples do I have left?
 
@@ -40,6 +42,7 @@ A: You start off with 20 apples. The customer buys 3 packs of 4 apples each whic
 
 Q: I have 37 apples in total. My customer buys 4 packs of apples. Every pack contains 2 apples. How many apples do I have left?
 
+<br />
 ### **Output**
 A: You start off with 37 apples. The customer buys 4 packs of 2 apples each with is equivalent to 4x2=8 apples. 37-8=29.
 </div>
@@ -55,7 +58,7 @@ The tree of thought framework builds upon chain of thought. The gist is that the
 
 <div style={{ marginLeft: "2rem" }}>
 <ol>
-<li className="text-blue-500">1. Thought Decomposition - split up how to solve the problem into multiple trains of thought</li>
+<li>1. Thought Decomposition - split up how to solve the problem into multiple trains of thought</li>
 <li className="text-red-500">2. Thought Generator - expand upon that train of thought for every different train</li>
 <li>3. State Evaluator - determine the validity or likeliness for that specific thought</li>
 <li>4. Search Algorithm - iterate through the branches of the tree to determine the best answer</li>
@@ -64,7 +67,7 @@ The tree of thought framework builds upon chain of thought. The gist is that the
 <br />
 Here's an example prompt to get started.
 <div>
-<div style={{ marginLeft: "2rem" }}>
+<div className="code" style={{ marginLeft: "2rem" }}>
 Imagine three different experts are answering this question.
 They will brainstorm the answer step by step reasoning carefully and taking all facts into consideration.
 All experts will write down 1 step of their thinking, then share it with the group.
@@ -85,10 +88,11 @@ The question is...
 Zero-shot prompting is probably the prompting that you are familiar with. You write a question, it gives you an answer. Zero-shot prompting requires providing a model with a task without giving it any examples of the task being done, forcing the model to use solely pre-existing knowledge to generate a response. This is useful when testing how well a model performs from solely instructions. The following is an example of using zero-shot prompting.
 
 <br />
-<div style={{ marginLeft: "2rem" }}>
+<div className="code" style={{ marginLeft: "2rem" }}>
 ### **Input**
 Q: What is the capital of France?
 
+<br />
 ### **Output**
 A: The capital of France is Paris.
 
@@ -102,7 +106,7 @@ Notice how the model isn't given any context and just has to rely on its pre-tra
 Unlike zero-shot prompting, few-shot prompting provides the model with a few examples to understand how to perform a task before it is asked to generate a response to a similar input. This aids the model completing its task because it is given more context as to how the task needs to be completed from the examples provided. Here's how few-shot prompting works.
 
 <br />
-<div style={{ marginLeft: "2rem" }}>
+<div className="code" style={{ marginLeft: "2rem" }}>
 ### **Input**
 Translate the following English sentence to Spanish. Here are a couple examples.
 
@@ -116,6 +120,7 @@ Spanish: El aprendizaje automático es genial. <br /> <br />
 
 English: This post is informative. <br />
 
+<br />
 ### **Output**
 Sure! Here is the translation: <br />
 

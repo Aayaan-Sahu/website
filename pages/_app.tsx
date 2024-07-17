@@ -10,7 +10,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   const [mounted, setMounted] = useState<boolean>(false);
 
   return (
-    <ThemeProvider enableSystem={true} attribute="class">
+    <ThemeProvider enableSystem={true} attribute="class" defaultTheme="light">
       <Head>
         <link
           rel="stylesheet"
