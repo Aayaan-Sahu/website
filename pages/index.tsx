@@ -36,7 +36,7 @@ export default function Home({
         className="dark:border-gray-700"
         style={{ width: "80%", marginLeft: "auto", marginRight: "auto" }}
       >
-        <div className="pt-3 pb-3">
+        <div className="pt-3 pb-3 h-screen">
           <div className="border-l border-gray-300 dark:border-gray-700">
             <Article metadata_posts={metadata_posts} />
           </div>

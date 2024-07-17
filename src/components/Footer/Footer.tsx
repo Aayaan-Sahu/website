@@ -1,6 +1,7 @@
 export default function Footer() {
   return (
-    <div className="w-full h-16 fixed left-0 bottom-0 flex justify-center items-center">
+    // <div className="w-full h-16 fixed left-0 bottom-0 flex justify-center items-center">
+    <div className="w-full h-16 left-0 bottom-0 flex justify-center items-center">
     {/* <div className="w-full h-16 bg-indigo-600 fixed left-0 bottom-0 flex justify-center items-center"> */}
       <div className="flex flex-row items-center justify-center">
         <a

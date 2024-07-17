@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Head from "next/head";
 import Nav from "../src/components/Nav/Nav";
 import { useEffect, useState, useRef } from "react";
 import {
@@ -69,10 +70,13 @@ export default function Search({
 
   return (
     <>
+      <Head>
+        <title>Search</title>
+      </Head>
       <Nav mounted={mounted} />
       <div
         style={{ width: "80%", marginLeft: "auto", marginRight: "auto" }}
-        className="flex flex-col justify-center text-center"
+        className="flex flex-col justify-center text-center min-h-screen"
       >
         <h1 className="text-5xl font-semibold text-center pt-8 mt-8">Search</h1>
         <p className="pb-8 mb-8 text-gray-500 dark:text-gray-400">

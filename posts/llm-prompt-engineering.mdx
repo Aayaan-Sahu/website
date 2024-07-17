@@ -1,0 +1,135 @@
+---
+title: "LLM Prompt Engineering"
+author: Aayaan Sahu
+date: 7/15/2024
+description: "How to get better responses from large language models"
+tags: ["AI", "Tutorial", "LLM"]
+---
+
+# What Are LLMs?
+**LLM**s, or **L**arge **L**angage **M**odels, are machine learning models based on the transformer architecture trained on vast arrays of text. The gist of an LLM is to give it some text and it will generate the next best words that it sees fits. This is done by understanding the relationships between words, so that it can idealize the next best output.
+
+<br />
+
+## What Are Some Popular LLMs?
+You've most definetely heard of ChatGPT, the first widely accessible large language model. But there are many more available LLMs, each with their own strengths and weaknesses.
+
+<div style={{ marginLeft: "2rem" }}>
+- **GPT-4 Omni**: OpenAI's newest model trained with more than one trillion parameters. It's multi-modal, which means it takes in various formats of input, such as audio, images, and text. It excels at tasks demanding logic.
+- **Gemini**: Google's family of LLMs that are accessible through your Google Account. It's integrated into much of the Google suite of products, adding another layer of ease, and it excels compared to ChatGPT in creative tasks.
+- **Llama**: Llama is Meta's take on the LLM, with its largest version trained with 65 billion parameters. Llama was trained on many data sources, including common ones such as Wikipedia, and for the developers, GitHub. The highlight of Llama is that it is now open-sourced, meaning anyone can take a peek at its underlying functions.
+- **Mistral**: Mistral is a model developed by MistralAI, that excels in tasks such as common sense and reasoning, that other models might comparatively struggle with. This makes it better at tasks that require complex reasoning, such as code generation.
+- **Claude**: Claude is a family of LLMs developed by Anthropic AI, designed to be safe and harmless. On top of that, Claude excels at understanding nuance such as humor and is particularly good for detailed tasks.
+</div>
+
+<br />
+# Prompt Engineering
+Now that we know what LLMs are, we need to know how to take advantage of their capabilities. Prompt engineering encapsulates the idea of finding an effective method to communicate a task to an AI, such that it returns your desired output. We'll go over some of the most popular prompt engineering techniques.
+
+<br />
+
+## Chain of Thought
+The chain of thought prompting framework focuses on replicating how humans approach solving problems, namely through breaking up the problem into smaller parts. The model will then individually investigate these broken up parts until it arrives upon an answer. This <span className="text-blue-500" target="_blank">[paper](https://arxiv.org/pdf/2201.11903)</span> investigates how using chain of thought can elicit reasoning within LLMs. Here's how chain of thought works.
+
+<br />
+<div style={{ marginLeft: "2rem" }}>
+### **Input**
+Q: I have 20 apples in total. My customer buys 3 packs of apples. Every pack contains 4 apples. How many apples do I have left?
+
+A: You start off with 20 apples. The customer buys 3 packs of 4 apples each which is equivalent to 3x4=12 apples. 20-12=8.
+
+Q: I have 37 apples in total. My customer buys 4 packs of apples. Every pack contains 2 apples. How many apples do I have left?
+
+### **Output**
+A: You start off with 37 apples. The customer buys 4 packs of 2 apples each with is equivalent to 4x2=8 apples. 37-8=29.
+</div>
+
+<br />
+
+Notice how within the input to the model, a Q&A structure was established using the Q: and A:. In addition, the input showed an example of breaking down the simple math problem into simpler steps in order to ensure that the LLM maintains accuracy and doesn't get lost in the way.
+
+
+<br />
+## Tree of Thought
+The tree of thought framework builds upon chain of thought. The gist is that there are multiple different trains of thought that form a tree, with the variety of thoughts leading to the finding of a better answer. There are four parts to the tree of thought prompting framework.
+
+<div style={{ marginLeft: "2rem" }}>
+<ol>
+<li className="text-blue-500">1. Thought Decomposition - split up how to solve the problem into multiple trains of thought</li>
+<li className="text-red-500">2. Thought Generator - expand upon that train of thought for every different train</li>
+<li>3. State Evaluator - determine the validity or likeliness for that specific thought</li>
+<li>4. Search Algorithm - iterate through the branches of the tree to determine the best answer</li>
+</ol>
+</div>
+<br />
+Here's an example prompt to get started.
+<div>
+<div style={{ marginLeft: "2rem" }}>
+Imagine three different experts are answering this question.
+They will brainstorm the answer step by step reasoning carefully and taking all facts into consideration.
+All experts will write down 1 step of their thinking, then share it with the group.
+They will each critique their response, and the all the responses of others.
+They will check their answer based on science and the laws of physics.
+Then all experts will go on to the next step and write down this step of their thinking.
+They will keep going through steps until they reach their conclusion taking into account the thoughts of the other experts.
+If at any time they realise that there is a flaw in their logic they will backtrack to where that flaw occurred .
+If any expert realises they're wrong at any point then they acknowledges this and start another train of thought.
+Each expert will assign a likelihood of their current assertion being correct.
+Continue until the experts agree on the single most likely location.
+The question is...
+</div>
+</div>
+
+<br />
+## Zero-Shot Prompting
+Zero-shot prompting is probably the prompting that you are familiar with. You write a question, it gives you an answer. Zero-shot prompting requires providing a model with a task without giving it any examples of the task being done, forcing the model to use solely pre-existing knowledge to generate a response. This is useful when testing how well a model performs from solely instructions. The following is an example of using zero-shot prompting.
+
+<br />
+<div style={{ marginLeft: "2rem" }}>
+### **Input**
+Q: What is the capital of France?
+
+### **Output**
+A: The capital of France is Paris.
+
+</div>
+<br />
+
+Notice how the model isn't given any context and just has to rely on its pre-trained knowledge in order to answer the user's question.
+
+<br />
+## Few-Shot Prompting
+Unlike zero-shot prompting, few-shot prompting provides the model with a few examples to understand how to perform a task before it is asked to generate a response to a similar input. This aids the model completing its task because it is given more context as to how the task needs to be completed from the examples provided. Here's how few-shot prompting works.
+
+<br />
+<div style={{ marginLeft: "2rem" }}>
+### **Input**
+Translate the following English sentence to Spanish. Here are a couple examples.
+
+=== Example 1 === <br />
+English: I love coding. <br />
+Spanish: Me encanta codificar. <br /> <br />
+
+=== Example 2 === <br />
+English: Machine learning is great. <br />
+Spanish: El aprendizaje automático es genial. <br /> <br />
+
+English: This post is informative. <br />
+
+### **Output**
+Sure! Here is the translation: <br />
+
+=== Example === <br />
+English: This post is informative. <br />
+Spanish: Esta publicación es informativa. <br />
+
+</div>
+<br />
+
+Notice how the model recognizes the format we would like our input and output, proving that the omdel grasped the structure and the requirements of the tasks through the provided examples.
+
+<br />
+## Self-Consistency Prompting
+Self-consistency prompting involves generating multiple responses to a given prmopt and selecting the oen that the majority agree with, or the one that is most consistent. This uses the idea that there is strength in numbers in order to democratize the best solution. By comparing different responses, self-consistency prompting filters anomalies and increases reliability of the model's output.
+
+Since the model output is long, the example of self consistency prompting is attached <span className="text-blue-500">[here](https://chatgpt.com/share/43a3544d-af43-4aaa-9d85-c5ff340c3d33)</span>.

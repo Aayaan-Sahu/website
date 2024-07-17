@@ -47,8 +47,8 @@ export const getTextFromSlug = (slug: string): PostSearchableContent => {
     title,
     content: postContentsWithoutLineBreaks,
     description,
-  }
-}
+  };
+};
 
 export const getPostFromSlug = (slug: string): Post => {
   const postPath = path.join(POST_PATH, `${slug}.mdx`);
@@ -90,10 +90,12 @@ export const getAllPosts = (): Post[] => {
     .map((slug) => getPostFromSlug(slug))
     .sort((a, b) => {
       // sort by post date
-      if (a.post_metadata.date > b.post_metadata.date) return 1;
-      if (a.post_metadata.date < b.post_metadata.date) return -1;
+      const dateA = new Date(a.post_metadata.date);
+      const dateB = new Date(b.post_metadata.date);
+
+      if ((dateA.getTime() - dateB.getTime()) < 0) return 1;
+      if ((dateA.getTime() - dateB.getTime()) > 0) return -1;
       return 0;
-    })
-    .reverse();
+    });
   return posts;
 };

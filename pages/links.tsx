@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { useEffect } from "react";
 import Nav from "../src/components/Nav/Nav";
 import { MountedContext, useMountedContext } from "../src/MountedContext";
@@ -11,6 +12,9 @@ export default function Links() {
   }, []);
   return (
     <>
+      <Head>
+        <title>Links</title>
+      </Head>
       <Nav mounted={mounted} />
       <div style={{ width: "80%", marginLeft: "auto", marginRight: "auto" }}>
         <div className="pt-8 pb-8 mt-8 mb-8">
@@ -37,6 +41,15 @@ export default function Links() {
                 href="mailto:aayaansahu@gmail.com"
               >
                 MAIL
+              </a>
+              <a
+                style={{ borderRadius: "16px" }}
+                className="flex flex-col justify-content items-center my-6 py-4 px-20 border-2 dark:border-gray-700 border-gray-200 transition hover:bg-gray-100 dark:hover:bg-gray-800"
+                rel="noopener noreferrer"
+                target="_blank"
+                href="https://www.instagram.com/aayaan_sahu/"
+              >
+                INSTAGRAM
               </a>
             </div>
           </div>

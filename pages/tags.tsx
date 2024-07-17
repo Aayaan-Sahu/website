@@ -29,29 +29,34 @@ export default function Tags({
       <Nav mounted={mounted} />
 
       <div>
-        <h1 className="text-5xl font-semibold text-center pt-8 pb-8 mt-8 mb-8">
+        <h1 className="text-5xl font-semibold text-center pt-8 mt-8">
           <div>
             <TagIcon className="w-8 h-8 inline-block mr-2" />
             <p className="inline-block">Tags</p>
             <TagIcon className="w-8 h-8 inline-block ml-2" />
           </div>
         </h1>
+        <p className="text-gray-500 dark:text-gray-400 text-center mb-8">
+          <strong>Posts organized.</strong>
+        </p>
       </div>
       <div
         style={{ width: "50%", marginLeft: "auto", marginRight: "auto" }}
-        className="justify-center"
+        className="justify-center h-screen"
       >
         {tags_count.map(({ name, count }) => {
           return (
             <div key={name} className="mt-2 mb-2 mr-5 inline-block">
-                <Link href={`tags/${name}`}>
-                  <div className="cursor-pointer">
-                    <span className="font-semibold pr-1 text-blue-500 hover:text-blue-600 dark:text-blue-500 dark:hover:text-blue-400">{name.toUpperCase()}</span>
-                    <span>(</span>
-                    <span>{count}</span>
-                    <span>)</span>
-                  </div>
-                </Link>
+              <Link href={`tags/${name}`}>
+                <div className="cursor-pointer">
+                  <span className="font-semibold pr-1 text-blue-500 hover:text-blue-600 dark:text-blue-500 dark:hover:text-blue-400">
+                    {name.toUpperCase()}
+                  </span>
+                  <span>(</span>
+                  <span>{count}</span>
+                  <span>)</span>
+                </div>
+              </Link>
             </div>
           );
         })}
