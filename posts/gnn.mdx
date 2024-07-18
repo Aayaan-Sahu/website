@@ -1,0 +1,52 @@
+---
+title: "Graph Neural Networks"
+author: Aayaan Sahu
+date: 6/10/2024
+description: "A short introduction to graph neural networks"
+tags: ["AI"]
+---
+
+# What Are Graph Neural Networks (GNNs)?
+Graph Neural Networks are a type of neural network that are designed to work with graph-structured data. A graph is a collection of nodes connected by edges. This structure represents a wide range of data types, including social networks, biological networks, knowledge graphs, and more. A notable graph problem is the traveling salesman.
+
+GNNs leverage the relational information inherent in graphs to perform tasks such as node classification, link prediction, and graph classification. They do this by iteratively updating the representations (or embeddings) of nodes based on their neighbors’ features and the graph’s structure.
+
+<br />
+# How do GNNs work?
+The idea behind GNNs is message passing, which is when nodes exchange information with their neighbors to update their own features. Here are the steps used in this process.
+
+<div style={{ marginLeft: "2rem" }}>
+<ol>
+<li>1. Initialization - Each node starts with an initial feature vector, often based on the raw data associated with it</li>
+<li>2. Aggregation - Each node then collects feature information from its surrounding neighbors, which can be done through aggregating functions such as sum, mean, or max</li>
+<li>3. Update - The aggregated information is then used to update the feature vector, which can be done through a feed-forward or recurrent neural network</li>
+<li>4. Propagation - The updated features are then propagated to the next layer, and this operation is then repeated</li>
+</ol>
+</div>
+<br />
+
+Through these steps, a GNN can learn the relationships between the nodes and can gain an understanding of the entire graph.
+
+<br />
+
+# Types of GNNs
+There are many types of GNNs, designed to handle different types of tasks and data. Here are a few.
+
+<div style={{ marginLeft: "2rem" }}>
+<ol>
+<li>Graph Convolutional Network - These extend the concept of convolution from grid-based data to graph-structured data. They use convolutional filters to aggregate information from a node's neighbors.</li>
+<li>Graph Attention Network - These use specific algorithms to weigh the imporrtance of neighboring nodes differnetly, allowing it to focus on relevant neighbors more when updating node features.</li>
+<li>Graph Autoencoder - These are used in unsupervised learning tasks, such as graph embedding and link prediction.</li>
+</ol>
+</div>
+
+<br />
+
+# What Can I Use Them For?
+GNNs are useful for many types of real-world applications, in which the data is structured in a graph format.
+
+<div style={{ marginLeft: "2rem" }}>
+- Social Network Analysis: GNNs can model social networks, which can power models that strive to provide better friend recommendation.
+- Molecular Biology: GNNs can model molecular structures which can aid in tasks such as predicting molecular properties.
+- Natural Language Processing - GNNs can be applied to tasks like semantic role labeling and knowledge graph completion by representing linguistic structures as graphs.
+</div>
